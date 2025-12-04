@@ -157,7 +157,7 @@ def get_goes_flux_factor():
 def get_solar_wind_factor():
     """
     Fetches NOAA solar wind plasma data (6-hours for recent), checks speed.
-    Boost if speed >500 km/s (high-speed stream from coronal holes).
+    Returns boost factor if speed >500 km/s (high-speed stream from coronal holes).
     """
     url = 'https://services.swpc.noaa.gov/products/solar-wind/plasma-6-hours.json'
     try:
