@@ -23,9 +23,6 @@ domain = st.selectbox("Domain", ['EQ', 'VOLC', 'SOL'])
 start_date = st.text_input("Start Date (YYYY-MM-DD)", "2025-12-03")
 ionex_text = st.text_area("Paste IONEX Text (optional for LAIC)")
 
-# Schumann power input (no public API, so manual)
-schumann_power = st.number_input("Schumann Power (e.g., from sosrff.tsu.ru charts)", value=20.0)
-
 # Historical matches (hardcoded for demo; expand as needed)
 historical_matches = [
     [0.8, 6.9, 1, 'EQ', 3.0, 26.0],  # Example
