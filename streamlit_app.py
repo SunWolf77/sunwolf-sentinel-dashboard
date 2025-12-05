@@ -20,7 +20,7 @@ proxy2 = col2.slider("Proxy 2 (0-1)", 0.0, 1.0, 0.7)
 proxies = [proxy1, proxy2]
 geomag_kp = st.number_input("Geomag Kp Index", value=2.0)
 domain = st.selectbox("Domain", ['EQ', 'VOLC', 'SOL'])
-start_date = st.text_input("Start Date (YYYY-MM-DD)", "2025-12-03")
+start_date = st.text_input("Start Date (YYYY-MM-DD)", datetime.now().strftime("%Y-%m-%d"))  # Default to current date
 ionex_text = st.text_area("Paste IONEX Text (optional for LAIC)")
 
 # Historical matches (hardcoded for demo; expand as needed)
