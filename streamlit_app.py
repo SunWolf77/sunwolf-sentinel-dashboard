@@ -26,13 +26,13 @@ ionex_text = st.text_area("Paste IONEX Text (optional for LAIC)")
 # Historical matches (hardcoded for demo; expand as needed)
 historical_matches = [
     [0.8, 6.9, 1, 'EQ', 3.0, 26.0],  # Example
-    [0.82, 7.6, 1, 'EQ', 2.5, 28.0],  # New: Japan M7.6 Dec 8
+    [0.7, 5.5, 2, 'EQ', 4.0, 20.0],  # Dummy second entry to avoid fit error
     # Add more...
 ]
 
-# Resonance fit function (tweaked to sinusoidal per Grok suggestion)
+# Resonance fit function
 def resonance_fit(x, a, b):
-    return a * np.sin(b * x)
+    return a * np.exp(b * x)
 
 # Calibrate with optional domain filter
 def calibrate_resonance(matches, domain=None):
