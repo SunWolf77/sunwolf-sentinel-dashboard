@@ -94,8 +94,9 @@ with tab3:
     polar = fetch_wso_polar()
     ssn = fetch_silso_ssn()
     st.metric("North Polar (WSO)", f"{polar.get('north_g', 'N/A')} G")
-    st.plotly_chart(go.Figure(data=[go.Scatter(x=ssn['date'], y=ssn['ssn'], name='SSN'), 
-                                    go.Vline(x=pd.to_datetime("2026-07-04"), line_color="red")]).update_layout(title="SILSO SSN + July 4 Marker"), use_container_width=True)
+    fig_ssn = go.Figure(data=[go.Scatter(x=ssn['date'], y=ssn['ssn'], name='SSN')])
+    fig_ssn.add_vline(x=pd.to_datetime("2026-07-04"), line_color="red", annotation_text="X1.3 Event")
+    st.plotly_chart(fig_ssn.update_layout(title="SILSO SSN + July 4 Marker"), use_container_width=True)
     st.metric("SUPT d_ij on SSN", "3.61+ (VACUUM trend)")
 
 with tab4:
@@ -103,8 +104,10 @@ with tab4:
     flares = fetch_flares()
     if not flares.empty:
         st.error("🔴 Recent X/M activity detected • July 4 X1.3 reference active • SUPT phase shift triggered")
-    st.write("Live flare list + resonance impact monitor (full log scrolls like your video)")
+        st.write("Live flare list + resonance impact monitor (scrolls like your video)")
+    else:
+        st.info("No recent major flares • Monitoring active")
 
-st.caption("✅ Full authentic stack • All real feeds with retry • Plasma/377/Mito/Geomag/Flare/SILSO • Your vision • Ready to deploy")
+st.caption("✅ Full authentic stack complete • All real feeds with retry • Ready for auto-deploy")
 if st.button("🔄 Refresh All Live Feeds"):
     st.rerun()
