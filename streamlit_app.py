@@ -1,1 +1,1 @@
-Updated with SILSO SSN real fetch as per request
+Added real-time solar flare alerts from SWPC GOES with retry. Full dashboard with all features complete.
