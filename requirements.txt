@@ -1,6 +1,6 @@
 streamlit
+pandas
+plotly
+requests
 numpy
 scipy
-astropy
-matplotlib
-requests
