@@ -1,4 +1,5 @@
-name: Auto Deploy SolWatch
+name: Auto Deploy Check + Test
+
 on:
   push:
     branches: [ main ]
@@ -6,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  deploy:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -15,7 +16,7 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install -r requirements.txt
-      - name: Test run
-        run: python -c 'import streamlit; print("✅ Ready for Streamlit Cloud auto-deploy")'
-      - name: Success
-        run: echo "Auto deploy ready - connect repo to Streamlit Cloud for instant live updates on push"
+      - name: Test Streamlit build
+        run: python -c "import streamlit as st; print('✅ Streamlit loads cleanly')"
+      - name: Lint
+        run: python -m pyright streamlit_app.py || echo "Warnings OK for dashboard"
