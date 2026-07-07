@@ -1,1 +1,1 @@
-Added GOES X-ray analysis note and chart enhancement for monitoring the nose dive and quieting signal.
+Added flare probability context and comparison to actual flux to address the probability question.
