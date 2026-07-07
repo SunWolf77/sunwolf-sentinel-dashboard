@@ -1,1 +1,1 @@
-# Added GOES X-ray flux live chart and table as requested for nose dive tracking. Full stable version with insights and GOES integration.
+Added GOES X-ray analysis note and chart enhancement for monitoring the nose dive and quieting signal.
